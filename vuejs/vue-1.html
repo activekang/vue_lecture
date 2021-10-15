@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>vue-1</title>
+  <script src="https://unpkg.com/vue"></script>
+ </head>
+ <body>
+  <div id="app">
+   <h1>{{message}}</h1>
+   <p>i like a {{message}}</p>
+  </div>
+  <script>
+    //정적렌더링
+    var app =new Vue({
+	 el:'#app',
+	 data:{
+	   message:'football!'
+	 }
+	});
+  </script>
+ </body>
+</html>
+<!-- 콘솔화면에서
+ >app.msg ='test!'
+ > test! 출력됨
+ -->

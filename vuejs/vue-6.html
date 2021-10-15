@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vue6</title>
+
+  </head>
+  <body>
+	<div id="app6">
+	<h3>기본 핸들링 테스트2</h3>
+	  <p>{{ message }}</p>
+	  <input v-model="message">
+	</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+	
+	// 기본 핸들링 테스트2
+	var app6 = new Vue({
+	  el: '#app6',
+	  data: {
+		message: '안녕하세요 Vue.js!'
+	  }
+	})
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>vue-11</title>
+  <style>
+   .books {width:540px;height:auto;margin:0 auto;border:1px solid #f90;}
+  .books:after {content:'';display:block;clear:both}
+   .book-image {float:left}
+   .book-info {float:left;margin-left:20px}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+ </head>
+ <body>
+ <div class="nav-bar"></div>
+  <div id="app">
+   <div class="books">
+    <div class="book-image">
+	 <img  v-bind:src="image" v-bind:alt="altText" v-bind:title="tit" />	
+	</div>
+	<div class="book-info">
+	 <h2>{{message}}</h2>
+	 <p v-if="inStock">In Stock</p>
+	 <p v-else>Out of Stock</p>
+	</div>
+   </div>
+  </div>
+  <script>
+    //정적렌더링
+    var app =new Vue({
+	 el:'#app',
+	 data:{
+	   message:'쇼펜하우어명언집!',
+	   image:'images/pic2.jpg',
+	   altText:'쇼펜하우어명언집',
+	   tit:'book-쇼펜하우어',
+	   inStock: false
+	 }
+	});
+  </script>
+ </body>
+</html>
+<!-- 콘솔화면에서
+ >app.msg ='test!'
+ > test! 출력됨
+ -->

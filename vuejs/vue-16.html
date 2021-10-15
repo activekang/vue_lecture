@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>vue-16-event</title>
+  <style>
+   .socks {width:540px;height:auto;margin:0 auto;border:1px solid #f90;}
+   .socks:after {content:'';display:block;clear:both}
+   .socks-image {float:left}
+   .socks-info {float:left;margin-left:20px}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+ </head>
+ <body>
+ <div class="nav-bar"></div>
+  <div id="app">
+   
+   <div class="socks">
+    <div class="socks-image">
+	 <img  v-bind:src="image" v-bind:alt="altText" v-bind:title="tit" />	
+	</div>
+	<div class="socks-info">
+	 <h2>{{product}}</h2>
+	 <!-- <p v-if="inventory > 10">In Stock</p>
+	 <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out!</p>
+	 <p v-else>Out of Stock</p> -->
+     <p v-show="inStock">In Stock</p>
+	 
+	 <ul>
+	  <li v-for="detail in details">{{ detail }}</li>
+	 </ul>
+
+	 <div v-for="variant in variants" :key="variant.variantId">
+	  <p>{{variant.variantColor}}</p>
+	 </div>
+                       <!-- cart += 1 -->
+	 <button v-on:click="addToCart">Add to cart</button>
+     <button :click="removeFromCart">Remove from cart</button>
+	
+	 <div class="cart">
+	  <p>Cart({{cart}})</p>
+	 </div>
+
+	</div>
+   </div>
+  </div>
+  <script>
+    //정적렌더링
+    var app =new Vue({
+	 el:'#app',
+	 data:{
+	   product:'Socks',
+	   image:'images/pic4.jpg',
+	   altText:'빨간양말',
+	   tit:'Socks-빨간양말',
+	   inStock: true,      /* flase - 값안보임 */
+	   details:["80% cotton","20% polyester","Gender-neutral"],
+	   variants:[
+	   {variantId:2234,
+	    variantColor:"red"},
+	   {variantId:2235,
+	    variantColor:"blue"}   
+      ],
+	  cart : 0
+	 },
+	 methods: {
+	  addToCart: function(){
+	   this.cart += 1
+	  },
+	  removeFromCart: function(){
+	   this.cart -= 1
+	  }
+	 }
+	});
+  </script>
+ </body>
+</html>

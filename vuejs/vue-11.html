@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>vue-11</title>
+  <style>
+   .books {width:540px;height:auto;margin:0 auto;border:1px solid #f90;}
+  .books:after {content:'';display:block;clear:both}
+   .book-image {float:left}
+   .book-info {float:left;margin-left:20px}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+ </head>
+ <body>
+ <div class="nav-bar"></div>
+  <div id="app">
+   <div class="books">
+    <div class="book-image">
+	 <img  v-bind:src="image" v-bind:alt="altText" v-bind:title="tit" />	
+	</div>
+	<div class="book-info">
+	 <h1>{{message}}</h1>
+	</div>
+   </div>
+  </div>
+  <script>
+    //정적렌더링
+    var app =new Vue({
+	 el:'#app',
+	 data:{
+	   message:'photoshopCC!',
+	   image:'images/pic1.jpg',
+	   altText:'포토샵CC',
+	   tit:'book-포토샵CC'
+	 }
+	});
+  </script>
+ </body>
+</html>
+<!-- 콘솔화면에서
+ >app.msg ='test!'
+ > test! 출력됨
+ -->
